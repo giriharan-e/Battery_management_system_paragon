@@ -94,7 +94,7 @@ with col_left:
                 {'range': [80, 100], 'color': "red"}],
         }
     ))
-    st.plotly_chart(fig_gauge, use_container_width=True)
+    st.plotly_chart(fig_gauge, width='stretch')
 
 with col_right:
     st.write("### Predicted Life Decay ⚡")
@@ -106,7 +106,7 @@ with col_right:
     fig_line.add_trace(go.Scatter(x=months, y=health_curve, mode='lines+markers', name='Health', line=dict(color='red' if current_health < 50 else 'green')))
     fig_line.add_hline(y=50, line_dash="dash", line_color="red", annotation_text="FAILURE THRESHOLD")
     fig_line.update_layout(xaxis_title="Months from Today", yaxis_title="Health %", yaxis_range=[0,110])
-    st.plotly_chart(fig_line, use_container_width=True)
+    st.plotly_chart(fig_line, width='stretch')
 
 # --- ROW 3: INTERACTIVE HEATMAP ---
 st.write("### String Physical Layout Status")
@@ -127,4 +127,5 @@ fig_heat = go.Figure(data=go.Heatmap(
     colorscale='RdYlGn',
     zmin=0, zmax=100
 ))
-st.plotly_chart(fig_heat, use_container_width=True)
+st.plotly_chart(fig_heat, width='stretch')
+
